@@ -4,7 +4,7 @@ type Props = {
   phrase: string;
 };
 
-export default function TextSlide({ phrase }: Props) {
+export default function PhraseWrap({ phrase }: Props) {
   return (
     <div className='flex gap-5 py-4 whitespace-nowrap'>
       <Phrase phrase={phrase} />

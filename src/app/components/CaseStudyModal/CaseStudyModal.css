@@ -1,0 +1,18 @@
+.casestudy_modal_wrap {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  z-index: -1;
+}
+
+.image_wrap {
+  height: 85vh;
+}
+
+.navigation_wrap {
+  height: 10vh;
+}

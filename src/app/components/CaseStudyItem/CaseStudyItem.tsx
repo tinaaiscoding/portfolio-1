@@ -19,6 +19,14 @@ const animation = {
   closed: { width: 0 },
 };
 
+const scaleAnim = {
+  initial: { scale: 1 },
+  open: {
+    scale: 4,
+  },
+  closed: { scale: 1 },
+};
+
 export default function CaseStudyItem({
   title1,
   title2,
@@ -44,9 +52,10 @@ export default function CaseStudyItem({
         animate={isActive ? 'open' : 'closed'}
         className='flex justify-center overflow-hidden'
       >
-        <div>
+        <motion.div layoutId='imageScale'
+        >
           <div className='h-[80px] w-[150px] rounded-full bg-gray-300'></div>
-        </div>
+        </motion.div>
       </motion.div>
       <p>{title2}</p>
     </div>

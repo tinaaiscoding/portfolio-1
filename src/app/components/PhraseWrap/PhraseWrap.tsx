@@ -1,5 +1,7 @@
 import { MotionValue, motion, useTransform } from 'framer-motion';
 
+import { PhraseProvider } from '@/app/utils/contexts';
+
 import Phrase from '../Phrase/Phrase';
 
 type Props = {
@@ -22,13 +24,15 @@ export default function PhraseWrap({
     [250 * translateDir, -250 * translateDir],
   );
   return (
-    <motion.div
-      style={{ left, x: translateX }}
-      className='relative flex gap-5 py-4 whitespace-nowrap'
-    >
-      <Phrase phrase={phrase} />
-      <Phrase phrase={phrase} />
-      <Phrase phrase={phrase} />
-    </motion.div>
+    <PhraseProvider context={{ phrase }}>
+      <motion.div
+        style={{ left, x: translateX }}
+        className='relative flex gap-5 py-4 whitespace-nowrap'
+      >
+        <Phrase />
+        <Phrase />
+        <Phrase />
+      </motion.div>
+    </PhraseProvider>
   );
 }

@@ -1,8 +1,8 @@
-type Props = {
-  phrase: string;
-};
+import { usePhraseContext } from '@/app/utils/contexts';
 
-export default function Phrase({ phrase }: Props) {
+export default function Phrase() {
+  const { phrase } = usePhraseContext();
+
   return (
     <div className='flex items-center gap-5'>
       <p className='text-8xl uppercase'>{phrase}</p>

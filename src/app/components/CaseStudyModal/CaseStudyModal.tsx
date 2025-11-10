@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 
+import { useCaseStudyContext } from '@/app/utils/contexts';
+
 import './CaseStudyModal.css';
 
 const modalAnimation = {
@@ -13,13 +15,15 @@ const modalAnimation = {
   closed: { opacity: 0 },
 };
 
-export default function CaseStudyModal({ isSelected, setIsSelected }) {
+export default function CaseStudyModal() {
+  const { caseStudy, setCaseStudy } = useCaseStudyContext();
+
   return (
-    isSelected && (
+    caseStudy.active && (
       <motion.div
         className='casestudy_modal_wrap'
         variants={modalAnimation}
-        animate={isSelected ? 'open' : 'closed'}
+        animate={caseStudy.active ? 'open' : 'closed'}
       >
         <motion.div className='image_wrap' layoutId='imageScale'>
           <div className='h-full w-full rounded-full bg-gray-300'></div>
@@ -28,7 +32,7 @@ export default function CaseStudyModal({ isSelected, setIsSelected }) {
         <div className='navigation_wrap'>navigation</div>
         <button
           onClick={() => {
-            setIsSelected(false);
+            setCaseStudy((prev) => ({ ...prev, active: false }));
           }}
         >
           close

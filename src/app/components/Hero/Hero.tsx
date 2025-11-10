@@ -3,17 +3,15 @@
 import { useScroll } from 'framer-motion';
 import { useRef } from 'react';
 
+import { phrases } from '@/app/data/data';
+import { PhraseContext } from '@/app/utils/contexts';
+
 import PhraseWrap from '../PhraseWrap/PhraseWrap';
 import './Hero.css';
 
-const phrases = [
-  { phrase: 'Creative websites', left: '-45%', direction: 'left' },
-  { phrase: 'Creative websites', left: '-20%', direction: 'right' },
-  { phrase: 'Creative websites', left: '-35%', direction: 'left' },
-];
-
 export default function Hero() {
   const heroContainer = useRef(null);
+
   const { scrollYProgress } = useScroll({
     target: heroContainer,
     offset: ['start end', 'end start'],

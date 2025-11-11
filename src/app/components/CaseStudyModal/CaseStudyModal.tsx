@@ -2,8 +2,7 @@
 
 import { motion } from 'framer-motion';
 
-import { useCaseStudyContext } from '@/app/utils/contexts';
-
+import { useCaseStudyContext } from '../../utils/contexts/caseStudy';
 import './CaseStudyModal.css';
 
 const modalAnimation = {

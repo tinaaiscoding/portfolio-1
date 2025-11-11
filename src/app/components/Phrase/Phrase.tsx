@@ -1,4 +1,4 @@
-import { usePhraseContext } from '@/app/utils/contexts';
+import { usePhraseContext } from '../../utils/contexts/phrase';
 
 export default function Phrase() {
   const { phrase } = usePhraseContext();

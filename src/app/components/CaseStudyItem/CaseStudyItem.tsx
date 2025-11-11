@@ -1,9 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 
-import { useCaseStudyContext } from '@/app/utils/contexts';
+import { useHoverSlide } from '@/app/utils/hooks/useHoverSlide';
+
+import { useCaseStudyContext } from '../../utils/contexts/caseStudy';
 
 type Props = {
   index: number;
@@ -11,25 +12,8 @@ type Props = {
   title2: string;
 };
 
-const slideAnimation = {
-  initial: { width: 0 },
-  open: {
-    width: 'auto',
-    transition: { duration: 0.4, ease: [0.23, 1, 0.32, 1] },
-  },
-  closed: { width: 0 },
-};
-
-const scaleAnimation = {
-  initial: { scale: 1 },
-  open: {
-    scale: 4,
-  },
-  closed: { scale: 1 },
-};
-
 export default function CaseStudyItem({ index, title1, title2 }: Props) {
-  const [isActive, setIsActive] = useState<boolean>(false);
+  const { slide, isHovered, onMouseEnter, onMouseLeave } = useHoverSlide();
   const { setCaseStudy } = useCaseStudyContext();
 
   const handleOnClick = () => {
@@ -39,15 +23,15 @@ export default function CaseStudyItem({ index, title1, title2 }: Props) {
   return (
     <a
       href='#'
-      onMouseEnter={() => setIsActive(true)}
-      onMouseLeave={() => setIsActive(false)}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       onClick={handleOnClick}
       className='flex items-center gap-5 overflow-hidden text-8xl uppercase'
     >
       <p>{title1}</p>
       <motion.div
-        variants={slideAnimation}
-        animate={isActive ? 'open' : 'closed'}
+        variants={slide}
+        animate={isHovered ? 'open' : 'closed'}
         className='flex justify-center overflow-hidden'
       >
         <motion.div layoutId='imageScale'>

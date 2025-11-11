@@ -1,7 +1,7 @@
 export const phrases = [
-  { phrase: 'Creative websites', left: '-45%', direction: 'left' },
-  { phrase: 'Amazing websites', left: '-20%', direction: 'right' },
-  { phrase: 'Stunning websites', left: '-35%', direction: 'left' },
+  { phrase: 'Creative websites', leftPercentage: '-45%', direction: 'left' },
+  { phrase: 'Amazing websites', leftPercentage: '-20%', direction: 'right' },
+  { phrase: 'Stunning websites', leftPercentage: '-35%', direction: 'left' },
 ];
 
 export const projects = [

@@ -3,9 +3,7 @@
 import { useScroll } from 'framer-motion';
 import { useRef } from 'react';
 
-import { phrases } from '@/app/data/data';
-import { PhraseContext } from '@/app/utils/contexts';
-
+import { phrases } from '../../data/data';
 import PhraseWrap from '../PhraseWrap/PhraseWrap';
 import './Hero.css';
 
@@ -28,7 +26,7 @@ export default function Hero() {
             <PhraseWrap
               key={i}
               phrase={p.phrase}
-              left={p.left}
+              leftPercentage={p.leftPercentage}
               progress={scrollYProgress}
               direction={p.direction}
             />

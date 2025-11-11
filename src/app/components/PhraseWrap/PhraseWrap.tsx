@@ -1,19 +1,18 @@
 import { MotionValue, motion, useTransform } from 'framer-motion';
 
-import { PhraseProvider } from '@/app/utils/contexts';
-
+import { PhraseProvider } from '../../utils/contexts/phrase';
 import Phrase from '../Phrase/Phrase';
 
 type Props = {
   phrase: string;
-  left: string;
+  leftPercentage: string;
   progress: MotionValue<number>;
   direction: string;
 };
 
 export default function PhraseWrap({
   phrase,
-  left,
+  leftPercentage,
   progress,
   direction,
 }: Props) {
@@ -23,10 +22,11 @@ export default function PhraseWrap({
     [0, 1],
     [250 * translateDir, -250 * translateDir],
   );
+
   return (
     <PhraseProvider context={{ phrase }}>
       <motion.div
-        style={{ left, x: translateX }}
+        style={{ left: leftPercentage, x: translateX }}
         className='relative flex gap-5 py-4 whitespace-nowrap'
       >
         <Phrase />

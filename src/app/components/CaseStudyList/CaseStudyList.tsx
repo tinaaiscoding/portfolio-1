@@ -1,10 +1,8 @@
 'use client';
 
-import { projects } from '@/app/data/data';
-import { CaseStudyProvider } from '../../utils/contexts'
-
+import { projects } from '../../data/data';
+import { CaseStudyProvider } from '../../utils/contexts/caseStudy';
 import CaseStudyItem from '../CaseStudyItem/CaseStudyItem';
-import CaseStudyModal from '../CaseStudyModal/CaseStudyModal';
 
 export default function CaseStudyList() {
   return (
@@ -21,9 +19,10 @@ export default function CaseStudyList() {
           );
         })}
 
+        {/* 
         <div>
           <CaseStudyModal />
-        </div>
+        </div> */}
       </section>
     </CaseStudyProvider>
   );
